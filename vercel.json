@@ -1,4 +1,3 @@
 {
-  "outputDirectory": "docs/.vuepress/dist",
-  "buildCommand": "build"
+  "outputDirectory": "docs/.vuepress/dist"
 }
