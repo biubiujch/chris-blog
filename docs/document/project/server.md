@@ -6,13 +6,30 @@ prev:
 
 ## 服务端搭建
 
-### typescirpt 支持
+### ts node 环境支持
 
-安装 typescript
+1. 新建一个空的目录，初始化 package.json
+
+2. 安装以下几个包，typescript，ts-node
 
 ```bash
-## use npm yarn or pnpm
-pnpm install typescript
+## use npm or yarn or pnpm
+ pnpm add typescript ts-node -D
+
 ```
 
-安装 babel,编译 typescript
+3. 初始化 typescirpt,生成 tsconfig.json
+
+```bash
+tsc -init
+```
+
+4. 修改 package.json
+
+```json
+{
+  "scripts": {
+    "start": "ts-node src/index.ts"
+  }
+}
+```
