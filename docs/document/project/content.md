@@ -8,3 +8,7 @@ prev:
 ## [uniapp](./uniapp.md)
 
 ## [node server](./server.md)
+
+## [jest](./jest.md)
+
+## [cypress](./cypress.md)
