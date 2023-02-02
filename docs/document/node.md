@@ -26,3 +26,4 @@ prev:
   ```
 
 参考 promise A+规范
+

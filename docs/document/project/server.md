@@ -33,3 +33,90 @@ tsc -init
   }
 }
 ```
+
+5.如果您使用了 TypeScript 这一 JavaScript 超集，则建议您使用此预设（preset）。
+
+```json
+npm install --save-dev @babel/preset-typescript
+```
+
+修改 .babelrc 或者 babel.config.js
+
+```json
+{
+  "presets": ["@babel/preset-typescript"]
+}
+```
+
+### express
+
+```bash
+pnpm add express --save
+```
+
+一个简单的 hello world
+
+```typescript
+import express from "express";
+
+const app = express();
+const port = 3000;
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
+});
+```
+
+### dotenv
+
+```bash
+pnpm add dotenv --save
+```
+
+typescript 下 使用 dotenv 智能提示
+
+1. 新建 global.d.ts
+
+```typescript
+namespace NodeJS {
+  interface ProcessEnv {
+    // 这里可以给 process.env 挂上需要的类型
+  }
+}
+```
+
+这样在 process.env 下就有了自定义的类型的智能提醒了
+
+此外还要确保在 tsconfig.json 中指定此文件的路径
+更好的方法是有一个文件夹让我们说扩展类型并将所有扩展类型保存在那里，只在此处指定该文件夹的路径而不是单个文件。
+
+2. 修改 tsconfig.json
+
+```json
+"typeRoots": ["./global.d.ts", "./node_modules/@types"],
+```
+
+### jest
+
+1. 安装 jest
+
+```bash
+pnpm add jest -save-dev
+
+## 支持typescript
+pnpm add @types/jest -save-dev
+```
+
+2. 配置 babel.config.js
+
+```javascript
+module.exports = {
+  presets: [["@babel/preset-env", { targets: { node: "current" } }]]
+};
+```
+
+
+### Sequelize
