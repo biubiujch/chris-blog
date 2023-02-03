@@ -118,5 +118,46 @@ module.exports = {
 };
 ```
 
-
 ### Sequelize
+
+1. 连接数据库
+
+```typescript
+const sequelize = new Sequelize(db_name, db_user, db_password, {
+  host: host,
+  dialect: "mysql"
+});
+```
+2.  
+
+### winston
+
+1. 安装
+
+```bash
+pnpm add windston
+```
+
+2. 使用
+
+引入 winston，createLogger 创建一个 logger
+
+```typescript
+import winston, { format } from "winston";
+
+const { combine, printf, timestamp } = format;
+
+const logFormat = printf(({ level, message, timestamp }) => {
+  return `[${timestamp}][${level}] ${message}`;
+});
+
+export const logger = winston.createLogger({
+  level: "info",
+  format: combine(timestamp({ format: "YYYY-MM-DD HH:mm:ss:SSS" }), logFormat),
+  defaultMeta: { service: "user-service" },
+  transports: [
+    new winston.transports.File({ dirname: "log", filename: "info.log", level: "info" }),
+    new winston.transports.File({ dirname: "log", filename: "error.log", level: "error" })
+  ]
+});
+```
