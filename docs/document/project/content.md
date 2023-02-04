@@ -9,6 +9,8 @@ prev:
 
 ## [node server](./server.md)
 
+## [rollup 搭建 ts 环境](./rollup.md)
+
 <!-- ## [react electron](./electron.md) -->
 
 <!-- ## [jest](./jest.md) -->

@@ -4,7 +4,32 @@ prev:
   link: ../content.md
 ---
 
-## 高阶函数与切片编程
+## 高阶函数
+
+**函数接收的参数为函数，或者返回一个函数，叫做高阶函数**
+
+- 应用场景  
+  例如在一个原有的方法上扩展一些功能，以下是一个 before 方法的实现
+
+```typescript
+function core(a: any, b: any, c: any) {
+  console.log("core");
+}
+
+Function.prototype.before = function (fn) {
+  return (...args) => {
+    fn();
+    this(...args);
+  };
+};
+
+const fn = core.before(() => {
+  //balabala
+  console.log("before");
+});
+
+fn(1, 2, 3);
+```
 
 ## 设计模式
 
