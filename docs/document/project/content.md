@@ -5,10 +5,12 @@ prev:
   link: ../../content.md
 ---
 
-## [uniapp](./uniapp.md)
+<!-- ## [uniapp](./uniapp.md) -->
 
 ## [node server](./server.md)
 
-## [jest](./jest.md)
+<!-- ## [react electron](./electron.md) -->
 
-## [cypress](./cypress.md)
+<!-- ## [jest](./jest.md) -->
+
+<!-- ## [cypress](./cypress.md) -->
