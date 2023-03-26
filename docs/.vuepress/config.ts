@@ -1,4 +1,5 @@
-import { defineUserConfig, defaultTheme } from "vuepress";
+import { defineUserConfig } from "vuepress";
+import { defaultTheme } from "@vuepress/theme-default";
 import { docsearchPlugin } from "@vuepress/plugin-docsearch";
 import { commentPlugin } from "vuepress-plugin-comment2";
 
@@ -29,9 +30,7 @@ export default defineUserConfig({
     ],
     colorMode: "dark",
     colorModeSwitch: true,
-    themePlugins: {
-      git: true
-    },
+    themePlugins: {},
     sidebar: [
       {
         text: "关于我",
