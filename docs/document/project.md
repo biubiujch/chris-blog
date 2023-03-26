@@ -1,10 +1,4 @@
----
-prev:
-  text: 工程化
-  link: ./content.md
----
-
-## rollup 搭建 ts 环境
+# rollup 搭建 ts 环境
 
 1. **pnpm 初始化生成 package.json 文件**
 

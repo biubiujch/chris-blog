@@ -1,10 +1,4 @@
----
-prev:
-  text: 工程化
-  link: ./content.md
----
-
-## 服务端搭建
+# 服务端搭建
 
 ### ts node 环境支持
 
@@ -128,7 +122,8 @@ const sequelize = new Sequelize(db_name, db_user, db_password, {
   dialect: "mysql"
 });
 ```
-2.  
+
+2.
 
 ### winston
 
@@ -161,3 +156,54 @@ export const logger = winston.createLogger({
   ]
 });
 ```
+
+# websocket
+
+### 服务端
+
+1. node 写 websocket 需要先安装 ws
+
+```bash
+npm insatll ws
+```
+
+2. 初始化一个 webscoket
+
+```js
+const ws = require("ws");
+const port = 4000;
+
+const ws = new Websocket({ port });
+```
+
+### 客户端
+
+这是一个简单的示例
+
+```js
+let ws = new WebSocket("ws://localhost:5000"); //在new websocket 的时候传入已有的websocket 服务地址
+
+ws.onopen = function (evt) {
+  console.log("Connection open ...");
+  ws.send("Hello");
+};
+
+ws.onmessage = function (evt) {
+  console.log("Received Message: " + evt.data);
+  ws.close();
+};
+
+ws.onclose = function (evt) {
+  console.log("Connection closed.");
+};
+```
+
+1. websocket 在执行构造函数时，客户端会与服务端进行连接
+
+2. ws.readyState  
+   readyState 属性返回实例对象的当前状态，共有四种。
+
+CONNECTING：值为 0，表示正在连接。
+OPEN：值为 1，表示连接成功，可以通信了。
+CLOSING：值为 2，表示连接正在关闭。
+CLOSED：值为 3，表示连接已经关闭，或者打开连接失败。
