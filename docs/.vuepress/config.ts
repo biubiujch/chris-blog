@@ -60,9 +60,9 @@ export default defineUserConfig({
   }),
   plugins: [
     docsearchPlugin({
-      appId: process.env.APPID || "<APP_ID>",
-      apiKey: process.env.APIKEY || "<API_KEY>",
-      indexName: process.env.INDEX_NAME || "<INDEX_NAME>",
+      appId: "0YG28812R4",
+      apiKey: "63cc1817979b5a2d955dd53526f6449e",
+      indexName: "chris-vercel",
       locales: {
         "/": {
           placeholder: "Search Documentation",
