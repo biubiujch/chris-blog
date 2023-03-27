@@ -2,6 +2,9 @@ import { defineUserConfig } from "vuepress";
 import { defaultTheme } from "@vuepress/theme-default";
 import { docsearchPlugin } from "@vuepress/plugin-docsearch";
 import { commentPlugin } from "vuepress-plugin-comment2";
+import * as dotenv from "dotenv";
+
+dotenv.config();
 
 export default defineUserConfig({
   lang: "zh-CN",
@@ -57,9 +60,9 @@ export default defineUserConfig({
   }),
   plugins: [
     docsearchPlugin({
-      appId: "<APP_ID>",
-      apiKey: "<API_KEY>",
-      indexName: "<INDEX_NAME>",
+      appId: process.env.APPID || "<APP_ID>",
+      apiKey: process.env.APIKEY || "<API_KEY>",
+      indexName: process.env.INDEX_NAME || "<INDEX_NAME>",
       locales: {
         "/": {
           placeholder: "Search Documentation",
